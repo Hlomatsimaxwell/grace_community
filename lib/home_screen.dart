@@ -51,9 +51,14 @@ class HomeScreen extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
               Spacer(),
-              Text(
-                'Viewl All',
-                style: TextStyle(color: AppColors.primaryColor),
+              InkWell(
+                onTap: () {
+                  debugPrint('I was Clicked');
+                },
+                child: Text(
+                  'View All',
+                  style: TextStyle(color: AppColors.primaryColor),
+                ),
               ),
             ],
           ),
