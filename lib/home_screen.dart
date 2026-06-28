@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:grace_community/components/story_avatar.dart';
 import 'package:grace_community/resources/app_colors.dart';
+import 'package:grace_community/resources/app_images.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -37,58 +39,84 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
-        children: [
-          const SizedBox(height: 16),
+        child: Column(
+          children: [
+            const SizedBox(height: 16),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Community Stories',
-                style: TextStyle(fontSize: 20),
-                overflow: TextOverflow.ellipsis,
-              ),
-              Spacer(),
-              InkWell(
-                onTap: () {
-                  debugPrint('I was Clicked');
-                },
-                child: Text(
-                  'View All',
-                  style: TextStyle(color: AppColors.primaryColor),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Community Stories',
+                  style: TextStyle(fontSize: 20),
+                  overflow: TextOverflow.ellipsis,
                 ),
-              ),
-            ],
-          ),
+                Spacer(),
+                InkWell(
+                  onTap: () {
+                    debugPrint('I was Clicked');
+                  },
+                  child: Text(
+                    'View All',
+                    style: TextStyle(color: AppColors.primaryColor),
+                  ),
+                ),
+              ],
+            ),
+            // Expanded(
+            //   child: SizedBox(
+            //     height: 150,
+            //     child: SingleChildScrollView(
+            //       scrollDirection: Axis.horizontal,
+            //       child: Row(
+            //         children: [
+            //           StoryAvatar(
+            //             storyImage: AppImages.person1,
+            //             storyTitle: 'Sarah J.',
+            //           ),
+            //           StoryAvatar(
+            //             storyImage: AppImages.person1,
+            //             storyTitle: 'Sarah J.',
+            //           ),
+            //           StoryAvatar(
+            //             storyImage: AppImages.person1,
+            //             storyTitle: 'Sarah J.',
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //   ),
+            // ),
 
-          // weekly bulletin
-          _buildMenuCard(
-            context,
-            title: 'Weekly Bulletin',
-            subtitle: "View what's happening this week",
-            icon: Icons.menu_book_outlined,
-          ),
-          const SizedBox(height: 12),
+            // weekly bulletin
+            _buildMenuCard(
+              context,
+              title: 'Weekly Bulletin',
+              subtitle: "View what's happening this week",
+              icon: Icons.menu_book_outlined,
+            ),
+            const SizedBox(height: 12),
 
-          // join a lifegroup
-          _buildMenuCard(
-            context,
-            title: 'Join a LifeGroup',
-            subtitle: 'Find your circle of community',
-            icon: Icons.people_outline,
-          ),
-          const SizedBox(height: 12),
+            // join a lifegroup
+            _buildMenuCard(
+              context,
+              title: 'Join a LifeGroup',
+              subtitle: 'Find your circle of community',
+              icon: Icons.people_outline,
+            ),
+            const SizedBox(height: 12),
 
-          // prayer request
-          _buildMenuCard(
-            context,
-            title: 'Prayer Request',
-            subtitle: 'How can we pray for you?',
-            icon: Icons.request_quote_outlined,
-          ),
-        ],
+            // prayer request
+            _buildMenuCard(
+              context,
+              title: 'Prayer Request',
+              subtitle: 'How can we pray for you?',
+              icon: Icons.request_quote_outlined,
+            ),
+          ],
+        ),
       ),
     );
   }
