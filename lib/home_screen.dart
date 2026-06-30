@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grace_community/components/story_avatar.dart';
 import 'package:grace_community/resources/app_colors.dart';
-import 'package:grace_community/resources/app_images.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -44,7 +43,6 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 4),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -56,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                 Spacer(),
                 InkWell(
                   onTap: () {
-                    debugPrint('I was Clicked');
+                    debugPrint('View All Clicked');
                   },
                   child: Text(
                     'View All',
@@ -65,7 +63,6 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-            //stories          //
             SizedBox(
               height: 100,
               child: SingleChildScrollView(
@@ -102,40 +99,57 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-
-Card(
-  elevation: 0,
-  color: const Color(0xFFE2DFFF),
-  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-  child: Padding(padding: const EdgeInsets.all(20),
-  child: Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Row(
-        children: [
-          Icon(Icons.calendar_month_outlined, size: 16, color: Colors.green.shade700),
-          const SizedBox(width: 6,),
-          Text(
-            'NEXT GATHERING',
-            style:TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.bold,
-              color: Colors.green.shade700,
-              letterSpacing: 0.5,
+            const SizedBox(height: 16),
+            Card(
+              elevation: 0,
+              color: const Color(0xFFF4F4FF),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.calendar_month_outlined, size: 16, color: Colors.green.shade700),
+                        const SizedBox(width: 6),
+                        Text(
+                          'NEXT GATHERING',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.green.shade700,
+                            letterSpacing: 0.5,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    const Text(
+                      'Sunday Service',
+                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Color(0xFF1A1A1A)),
+                    ),
+                    const SizedBox(height: 6),
+                    const Text(
+                      'Join us for a time of worship, community, and inspiration as we explore our new series.',
+                      style: TextStyle(fontSize: 14, color: Colors.black54, height: 1.3),
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      children: [
+                        _buildCountdownUnit('02', 'DAYS'),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 12.0),
+                          child: Text(':', style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.indigo)),
+                        ),
+                        _buildCountdownUnit('04', 'HOURS'),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ),
-          ),
-        ],
-      ),
-      const SizedBox(height: 8,),
-      const Text(
-        'Sunday Service',
-        style: TextStyle( fontSize: 24, fontWeight: FontWeight.bold),
-      )
-    ],              
-  ),),
-),
-
-            // weekly bulletin
+            const SizedBox(height: 16),
             _buildMenuCard(
               context,
               title: 'Weekly Bulletin',
@@ -143,8 +157,6 @@ Card(
               icon: Icons.menu_book_outlined,
             ),
             const SizedBox(height: 12),
-
-            // join a lifegroup
             _buildMenuCard(
               context,
               title: 'Join a LifeGroup',
@@ -152,8 +164,6 @@ Card(
               icon: Icons.people_outline,
             ),
             const SizedBox(height: 12),
-
-            // prayer request
             _buildMenuCard(
               context,
               title: 'Prayer Request',
@@ -163,6 +173,22 @@ Card(
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildCountdownUnit(String value, String label) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          value,
+          style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.indigo, height: 1.0),
+        ),
+        Text(
+          label,
+          style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.black45, letterSpacing: 0.5),
+        ),
+      ],
     );
   }
 
