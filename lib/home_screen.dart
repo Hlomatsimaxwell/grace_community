@@ -100,6 +100,8 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
+
+            //countdown card
             Card(
               elevation: 0,
               color: const Color(0xFFF4F4FF),
@@ -149,6 +151,8 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
+
+            //three cards
             const SizedBox(height: 16),
             _buildMenuCard(
               context,
