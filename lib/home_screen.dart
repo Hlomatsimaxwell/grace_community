@@ -253,7 +253,6 @@ class HomeScreen extends StatelessWidget {
             Card(
               elevation: 0,
               color: Colors.white,
-              clipBehavior: Clip.antiAlias,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
                 side: BorderSide(color: Colors.grey.shade100),
