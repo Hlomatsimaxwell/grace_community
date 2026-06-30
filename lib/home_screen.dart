@@ -43,7 +43,7 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            const SizedBox(height: 16),
+            const SizedBox(height: 4),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -102,6 +102,39 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
+
+Card(
+  elevation: 0,
+  color: const Color(0xFFE2DFFF),
+  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+  child: Padding(padding: const EdgeInsets.all(20),
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Row(
+        children: [
+          Icon(Icons.calendar_month_outlined, size: 16, color: Colors.green.shade700),
+          const SizedBox(width: 6,),
+          Text(
+            'NEXT GATHERING',
+            style:TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.bold,
+              color: Colors.green.shade700,
+              letterSpacing: 0.5,
+            ),
+          ),
+        ],
+      ),
+      const SizedBox(height: 8,),
+      const Text(
+        'Sunday Service',
+        style: TextStyle( fontSize: 24, fontWeight: FontWeight.bold),
+      )
+    ],              
+  ),),
+),
+
             // weekly bulletin
             _buildMenuCard(
               context,
