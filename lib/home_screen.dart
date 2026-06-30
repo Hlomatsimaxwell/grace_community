@@ -65,31 +65,43 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-            // Expanded(
-            //   child: SizedBox(
-            //     height: 150,
-            //     child: SingleChildScrollView(
-            //       scrollDirection: Axis.horizontal,
-            //       child: Row(
-            //         children: [
-            //           StoryAvatar(
-            //             storyImage: AppImages.person1,
-            //             storyTitle: 'Sarah J.',
-            //           ),
-            //           StoryAvatar(
-            //             storyImage: AppImages.person1,
-            //             storyTitle: 'Sarah J.',
-            //           ),
-            //           StoryAvatar(
-            //             storyImage: AppImages.person1,
-            //             storyTitle: 'Sarah J.',
-            //           ),
-            //         ],
-            //       ),
-            //     ),
-            //   ),
-            // ),
-
+            //stories          //
+            SizedBox(
+              height: 100,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                physics: const BouncingScrollPhysics(),
+                child: Row(
+                  children: [
+                    StoryAvatar(
+                      imageUrl: 'assets/icons/image1.jpg',
+                      storyName: 'Sarah J.',
+                      isViewed: false,
+                    ),
+                    StoryAvatar(
+                      imageUrl: 'assets/icons/image2.jpg',
+                      storyName: 'Youth',
+                      isViewed: false,
+                    ),
+                    StoryAvatar(
+                      imageUrl: 'assets/icons/image3.jpg',
+                      storyName: 'Building',
+                      isViewed: false,
+                    ),
+                    StoryAvatar(
+                      imageUrl: 'assets/icons/image1.jpg',
+                      storyName: 'Worship',
+                      isViewed: false,
+                    ),
+                    StoryAvatar(
+                      imageUrl: 'assets/icons/image2.jpg',
+                      storyName: 'Outreach',
+                      isViewed: false,
+                    ),
+                  ],
+                ),
+              ),
+            ),
             // weekly bulletin
             _buildMenuCard(
               context,
