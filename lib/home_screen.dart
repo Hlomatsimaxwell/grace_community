@@ -262,7 +262,7 @@ class HomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Image.asset(
-                    'assets/icons/image3.jpg',
+                    'assets/icons/youth.jpg',
                     height: 180,
                     width: double.infinity,
                     fit: BoxFit.cover,
