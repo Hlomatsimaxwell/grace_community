@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:grace_community/bulletin_screen.dart';
 import 'home_screen.dart';
 import 'package:grace_community/resources/app_images.dart';
 
@@ -60,17 +61,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 }
 
 
-
-class BulletinScreen extends StatelessWidget {
-  const BulletinScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Bulletin Screen', style: TextStyle(fontSize: 20)),
-    );
-  }
-}
 
 class PeopleScreen extends StatelessWidget {
   const PeopleScreen({super.key});

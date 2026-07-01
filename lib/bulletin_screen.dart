@@ -8,6 +8,37 @@ class BulletinScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFAFAFE),
+      appBar: AppBar(
+        elevation: 10,
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        leading: Container(
+          margin: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            color: AppColors.primaryColor,
+            borderRadius: BorderRadius.circular(50),
+          ),
+          child: const Icon(Icons.church, color: Colors.white),
+        ),
+        title: Text(
+          'Grace Community',
+          style: TextStyle(
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+            color: AppColors.primaryColor,
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: Icon(
+              Icons.location_on_outlined,
+              color: AppColors.primaryColor,
+            ),
+          ),
+        ],
+      ),
+
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -23,7 +54,11 @@ class BulletinScreen extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: 'Search announcements...',
                   hintStyle: TextStyle(color: Colors.black38, fontSize: 14),
-                  prefixIcon: Icon(Icons.search, color: Colors.black38, size: 20),
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Colors.black38,
+                    size: 20,
+                  ),
                   border: InputBorder.none,
                   contentPadding: EdgeInsets.symmetric(vertical: 12),
                 ),
@@ -33,39 +68,9 @@ class BulletinScreen extends StatelessWidget {
 
             SizedBox(
               height: 38,
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                physics: const BouncingScrollPhysics(),
-                child: Row(
-                  children: [
-                    _buildFilterChip('General', isSelected: true),
-                    _buildFilterChip('Youth', isSelected: false),
-                    _buildFilterChip('Events', isSelected: false),
-                  ],
-                ),
-              ),
+              child: SingleChildScrollView(scrollDirection: Axis.horizontal),
             ),
-            const SizedBox(height: 16),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildFilterChip(String label, {required bool isSelected}) {
-    return Container(
-      margin: const EdgeInsets.only(right: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-      decoration: BoxDecoration(
-        color: isSelected ? AppColors.primaryColor : const Color(0xFFEEEEF6),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Text(
-        label,
-        style: TextStyle(
-          color: isSelected ? Colors.white : Colors.black54,
-          fontSize: 14,
-          fontWeight: FontWeight.w500,
         ),
       ),
     );
