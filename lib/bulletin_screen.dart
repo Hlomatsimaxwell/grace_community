@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grace_community/resources/app_colors.dart';
+import 'package:grace_community/search_text_field.dart';
 
 class BulletinScreen extends StatelessWidget {
   const BulletinScreen({super.key});
@@ -13,48 +14,7 @@ class BulletinScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Search announcements...',
-                  hintStyle: const TextStyle(
-                    color: Colors.black38,
-                    fontSize: 14,
-                  ),
-                  prefixIcon: const Icon(
-                    Icons.search,
-                    color: Colors.black38,
-                    size: 20,
-                  ),
-                  contentPadding: const EdgeInsets.symmetric(vertical: 12),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(
-                      color: Colors.grey.shade200,
-                      width: 1,
-                    ),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(
-                      color: Colors.grey.shade200,
-                      width: 1,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(
-                      color: AppColors.primaryColor,
-                      width: 2,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            SearchTextField(onChanged: (value) {}, value: ""),
             const SizedBox(height: 16),
 
             SizedBox(

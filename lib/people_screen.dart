@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grace_community/resources/app_colors.dart';
+import 'package:grace_community/search_text_field.dart';
 
 class PeopleScreen extends StatelessWidget {
   const PeopleScreen({super.key});
@@ -9,22 +10,9 @@ class PeopleScreen extends StatelessWidget {
     return Column(
       children: [
         // Search Bar
-        Container(
-          margin: const EdgeInsets.all(16.0),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: Colors.grey.shade200),
-          ),
-          child: const TextField(
-            decoration: InputDecoration(
-              hintText: 'Search for people...',
-              hintStyle: TextStyle(color: Colors.black38, fontSize: 14),
-              prefixIcon: Icon(Icons.search, color: Colors.black38, size: 20),
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.symmetric(vertical: 12),
-            ),
-          ),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: SearchTextField(onChanged: (value) {}, value: ""),
         ),
         Expanded(
           child: SingleChildScrollView(
