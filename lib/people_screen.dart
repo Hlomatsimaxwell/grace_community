@@ -56,18 +56,30 @@ class PeopleScreen extends StatelessWidget {
             // People List
             _buildSectionHeader('A'),
             _buildPersonCard(
-              
               imageAsset: 'assets/icons/image1.jpg',
-              name: 'Alice\nThompson',
+              name: 'Alice Thompson',
               role: 'Youth Leader',
               roleColor: const Color(0xFF0F624C),
+            ),
+
+            _buildPersonCard(
+              imageAsset: 'assets/icons/image1.jpg',
+              name: 'Alice Thompson',
+              role: 'Youth Leader',
+              roleColor: const Color(0xFF5F5D68),
+            ),
+            _buildSectionHeader('B'),
+            _buildPersonCard(
+              imageAsset: 'assets/icons/image1.jpg',
+              name: 'Alice Thompson',
+              role: 'Youth Leader',
+              roleColor: const Color(0xFF5F5D68),
             ),
           ],
         ),
       ),
     );
   }
-
 
   Widget _buildFilterChip(String label, {required bool isSelected}) {
     return Container(
@@ -108,69 +120,86 @@ class PeopleScreen extends StatelessWidget {
     required String role,
     required Color roleColor,
   }) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 12.0),
-      padding: const EdgeInsets.all(12.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.shade200),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.03),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
+    return Card(
+      elevation: 0,
+      color: Colors.white,
+      margin: const EdgeInsets.only(bottom: 12),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: Colors.grey.shade100),
       ),
-      child: Row(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Image.asset(
-              imageAsset,
-              width: 50,
-              height: 50,
-              fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) {
-                return Container(
-                  width: 50,
-                  height: 50,
-                  color: Colors.grey.shade200,
-                  child: const Icon(Icons.person, color: Colors.grey),
-                );
-              },
-            ),
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  name,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black87,
-                    height: 1.2,
-                  ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          children: [
+            Container(
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                border: Border.all(color: Colors.grey.shade200, width: 2),
+                image: DecorationImage(
+                  image: AssetImage(imageAsset),
+                  fit: BoxFit.cover,
                 ),
-                const SizedBox(height: 4),
-                Text(
-                  role,
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500,
-                    color: roleColor,
-                    height: 1.2,
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
-          const Icon(Icons.messenger_outline_rounded, size: 16, color:Colors.blue),
-        ],
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF1A1A1A),
+                      height: 1.2,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    role,
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: roleColor,
+                      fontWeight: FontWeight.w200,
+                      height: 1.2,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              width: 44,
+              height: 44,
+              decoration: const BoxDecoration(
+                color: Color(0xFF56FFA4),
+                shape: BoxShape.circle,
+              ),
+              child: const Icon(
+                Icons.phone,
+                color: Color(0xFF0F624C),
+                size: 20,
+              ),
+            ),
+            const SizedBox(width: 12),
+            Container(
+              width: 44,
+              height: 44,
+              decoration: BoxDecoration(
+                color: AppColors.primaryColor,
+                shape: BoxShape.circle,
+              ),
+              child: const Icon(
+                Icons.chat_bubble,
+                color: Colors.white,
+                size: 20,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
