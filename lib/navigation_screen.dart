@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grace_community/bulletin_screen.dart';
+import 'package:grace_community/resources/app_colors.dart';
 import 'home_screen.dart';
 import 'package:grace_community/resources/app_images.dart';
+import 'package:grace_community/people_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -25,6 +27,36 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 10,
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        leading: Container(
+          margin: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            color: AppColors.primaryColor,
+            borderRadius: BorderRadius.circular(50),
+          ),
+          child: const Icon(Icons.church, color: Colors.white),
+        ),
+        title: Text(
+          "Grace Community",
+          style: TextStyle(
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+            color: AppColors.primaryColor,
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: Icon(
+              Icons.location_on_outlined,
+              color: AppColors.primaryColor,
+            ),
+          ),
+        ],
+      ),
       body: SafeArea(child: _screens[_currentIndex]),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _currentIndex,
@@ -62,16 +94,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 
 
 
-class PeopleScreen extends StatelessWidget {
-  const PeopleScreen({super.key});
-
-  @override
-   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('People Screen', style: TextStyle(fontSize: 20)),
-    );
-  }
-}
 
 class GivingScreen extends StatelessWidget {
   const GivingScreen({super.key});

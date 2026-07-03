@@ -8,37 +8,6 @@ class BulletinScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFAFAFE),
-      appBar: AppBar(
-        elevation: 10,
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        leading: Container(
-          margin: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: AppColors.primaryColor,
-            borderRadius: BorderRadius.circular(50),
-          ),
-          child: const Icon(Icons.church, color: Colors.white),
-        ),
-        title: Text(
-          'Grace Community',
-          style: TextStyle(
-            fontSize: 28,
-            fontWeight: FontWeight.bold,
-            color: AppColors.primaryColor,
-          ),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: Icon(
-              Icons.location_on_outlined,
-              color: AppColors.primaryColor,
-            ),
-          ),
-        ],
-      ),
-
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -125,7 +94,7 @@ class BulletinScreen extends StatelessWidget {
             _buildAnnouncementCard(
               imageAsset: 'assets/icons/campfire.jpg',
               tagLabel: 'Youth',
-              tagColor:  Colors.deepOrange,
+              tagColor: Colors.deepOrange,
               date: 'October 20, 2023',
               title: 'Youth Retreat Registration Open',
               description:
@@ -134,7 +103,7 @@ class BulletinScreen extends StatelessWidget {
             _buildAnnouncementCard(
               imageAsset: 'assets/icons/church.jpg',
               tagLabel: 'General',
-              tagColor:  const Color.fromARGB(255, 51, 123, 54),
+              tagColor: const Color.fromARGB(255, 51, 123, 54),
               date: 'October 18, 2023',
               title: 'Annual Membership Meeting',
               description:
@@ -206,7 +175,10 @@ class BulletinScreen extends StatelessWidget {
                 top: 12,
                 left: 12,
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 4,
+                  ),
                   decoration: BoxDecoration(
                     color: tagColor,
                     borderRadius: BorderRadius.circular(8),
