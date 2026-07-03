@@ -6,78 +6,112 @@ class PeopleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFFAFAFE),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Search Bar
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.grey.shade200),
-              ),
-              child: const TextField(
-                decoration: InputDecoration(
-                  hintText: 'Search for people...',
-                  hintStyle: TextStyle(color: Colors.black38, fontSize: 14),
-                  prefixIcon: Icon(
-                    Icons.search,
-                    color: Colors.black38,
-                    size: 20,
-                  ),
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.symmetric(vertical: 12),
-                ),
-              ),
+    return Column(
+      children: [
+        // Search Bar
+        Container(
+          margin: const EdgeInsets.all(16.0),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: Colors.grey.shade200),
+          ),
+          child: const TextField(
+            decoration: InputDecoration(
+              hintText: 'Search for people...',
+              hintStyle: TextStyle(color: Colors.black38, fontSize: 14),
+              prefixIcon: Icon(Icons.search, color: Colors.black38, size: 20),
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.symmetric(vertical: 12),
             ),
-            const SizedBox(height: 16),
-
-            // Filter Chips
-            SizedBox(
-              height: 38,
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                physics: const BouncingScrollPhysics(),
-                child: Row(
-                  children: [
-                    _buildFilterChip('All Members', isSelected: true),
-                    _buildFilterChip('Staff', isSelected: false),
-                    _buildFilterChip('Volunteers', isSelected: false),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 16),
-
-            // People List
-            _buildSectionHeader('A'),
-            _buildPersonCard(
-              imageAsset: 'assets/icons/image1.jpg',
-              name: 'Alice Thompson',
-              role: 'Youth Leader',
-              roleColor: const Color(0xFF0F624C),
-            ),
-
-            _buildPersonCard(
-              imageAsset: 'assets/icons/image1.jpg',
-              name: 'Alice Thompson',
-              role: 'Youth Leader',
-              roleColor: const Color(0xFF5F5D68),
-            ),
-            _buildSectionHeader('B'),
-            _buildPersonCard(
-              imageAsset: 'assets/icons/image1.jpg',
-              name: 'Alice Thompson',
-              role: 'Youth Leader',
-              roleColor: const Color(0xFF5F5D68),
-            ),
-          ],
+          ),
         ),
-      ),
+        Expanded(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Filter Chips
+                SizedBox(
+                  height: 38,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    child: Row(
+                      children: [
+                        _buildFilterChip('All Members', isSelected: true),
+                        _buildFilterChip('Staff', isSelected: false),
+                        _buildFilterChip('Volunteers', isSelected: false),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+
+                // People List
+                _buildSectionHeader('A'),
+                _buildPersonCard(
+                  imageAsset: 'assets/icons/image1.jpg',
+                  name: 'Alice Thompson',
+                  role: 'Youth Leader',
+                  roleColor: const Color(0xFF0F624C),
+                ),
+
+                _buildPersonCard(
+                  imageAsset: 'assets/icons/image1.jpg',
+                  name: 'Alice Thompson',
+                  role: 'Youth Leader',
+                  roleColor: const Color(0xFF5F5D68),
+                ),
+                _buildSectionHeader('B'),
+                _buildPersonCard(
+                  imageAsset: 'assets/icons/image1.jpg',
+                  name: 'Alice Thompson',
+                  role: 'Youth Leader',
+                  roleColor: const Color(0xFF5F5D68),
+                ),
+                _buildPersonCard(
+                  imageAsset: 'assets/icons/image1.jpg',
+                  name: 'Alice Thompson',
+                  role: 'Youth Leader',
+                  roleColor: const Color(0xFF5F5D68),
+                ),
+                _buildPersonCard(
+                  imageAsset: 'assets/icons/image1.jpg',
+                  name: 'Alice Thompson',
+                  role: 'Youth Leader',
+                  roleColor: const Color(0xFF5F5D68),
+                ),
+                _buildPersonCard(
+                  imageAsset: 'assets/icons/image1.jpg',
+                  name: 'Alice Thompson',
+                  role: 'Youth Leader',
+                  roleColor: const Color(0xFF5F5D68),
+                ),
+                _buildPersonCard(
+                  imageAsset: 'assets/icons/image1.jpg',
+                  name: 'Alice Thompson',
+                  role: 'Youth Leader',
+                  roleColor: const Color(0xFF5F5D68),
+                ),
+                _buildPersonCard(
+                  imageAsset: 'assets/icons/image1.jpg',
+                  name: 'Alice Thompson',
+                  role: 'Youth Leader',
+                  roleColor: const Color(0xFF5F5D68),
+                ),
+                _buildPersonCard(
+                  imageAsset: 'assets/icons/image1.jpg',
+                  name: 'Alice Thompson',
+                  role: 'Youth Leader',
+                  roleColor: const Color(0xFF5F5D68),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 
