@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grace_community/components/person_card.dart';
 import 'package:grace_community/resources/app_colors.dart';
 import 'package:grace_community/search_text_field.dart';
 
@@ -9,18 +10,16 @@ class PeopleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Search Bar
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: SearchTextField(onChanged: (value) {}, value: ""),
         ),
         Expanded(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Filter Chips
                 SizedBox(
                   height: 38,
                   child: SingleChildScrollView(
@@ -37,63 +36,42 @@ class PeopleScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
 
-                // People List
                 _buildSectionHeader('A'),
-                _buildPersonCard(
+                PersonCard(
                   imageAsset: 'assets/icons/image1.jpg',
                   name: 'Alice Thompson',
                   role: 'Youth Leader',
                   roleColor: const Color(0xFF0F624C),
                 ),
+                PersonCard(
+                  imageAsset: 'assets/icons/image2.jpg',
+                  name: 'Aaron Miller',
+                  role: 'Lead Volunteer',
+                  roleColor: const Color(0xFF5F5D68),
+                ),
 
-                _buildPersonCard(
-                  imageAsset: 'assets/icons/image1.jpg',
-                  name: 'Alice Thompson',
-                  role: 'Youth Leader',
-                  roleColor: const Color(0xFF5F5D68),
-                ),
                 _buildSectionHeader('B'),
-                _buildPersonCard(
+                PersonCard(
+                  imageAsset: 'assets/icons/image3.jpg',
+                  name: 'Benjamin Carter',
+                  role: 'Elder',
+                  roleColor: const Color(0xFF0F624C),
+                ),
+
+                _buildSectionHeader('C'),
+                PersonCard(
                   imageAsset: 'assets/icons/image1.jpg',
-                  name: 'Alice Thompson',
-                  role: 'Youth Leader',
+                  name: 'Clara Evans',
+                  role: 'Small Group Host',
                   roleColor: const Color(0xFF5F5D68),
                 ),
-                _buildPersonCard(
-                  imageAsset: 'assets/icons/image1.jpg',
-                  name: 'Alice Thompson',
-                  role: 'Youth Leader',
-                  roleColor: const Color(0xFF5F5D68),
-                ),
-                _buildPersonCard(
-                  imageAsset: 'assets/icons/image1.jpg',
-                  name: 'Alice Thompson',
-                  role: 'Youth Leader',
-                  roleColor: const Color(0xFF5F5D68),
-                ),
-                _buildPersonCard(
-                  imageAsset: 'assets/icons/image1.jpg',
-                  name: 'Alice Thompson',
-                  role: 'Youth Leader',
-                  roleColor: const Color(0xFF5F5D68),
-                ),
-                _buildPersonCard(
-                  imageAsset: 'assets/icons/image1.jpg',
-                  name: 'Alice Thompson',
-                  role: 'Youth Leader',
-                  roleColor: const Color(0xFF5F5D68),
-                ),
-                _buildPersonCard(
-                  imageAsset: 'assets/icons/image1.jpg',
-                  name: 'Alice Thompson',
-                  role: 'Youth Leader',
-                  roleColor: const Color(0xFF5F5D68),
-                ),
-                _buildPersonCard(
-                  imageAsset: 'assets/icons/image1.jpg',
-                  name: 'Alice Thompson',
-                  role: 'Youth Leader',
-                  roleColor: const Color(0xFF5F5D68),
+
+                _buildSectionHeader('D'),
+                PersonCard(
+                  imageAsset: 'assets/icons/image2.jpg',
+                  name: 'David Wilson',
+                  role: 'Worship Pastor',
+                  roleColor: const Color(0xFF0F624C),
                 ),
               ],
             ),
@@ -130,97 +108,7 @@ class PeopleScreen extends StatelessWidget {
         style: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.bold,
-          color: Colors.black87,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildPersonCard({
-    required String imageAsset,
-    required String name,
-    required String role,
-    required Color roleColor,
-  }) {
-    return Card(
-      elevation: 0,
-      color: Colors.white,
-      margin: const EdgeInsets.only(bottom: 12),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: Colors.grey.shade100),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Row(
-          children: [
-            Container(
-              width: 60,
-              height: 60,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                border: Border.all(color: Colors.grey.shade200, width: 2),
-                image: DecorationImage(
-                  image: AssetImage(imageAsset),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    name,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                      color: Color(0xFF1A1A1A),
-                      height: 1.2,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    role,
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: roleColor,
-                      fontWeight: FontWeight.w200,
-                      height: 1.2,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              width: 44,
-              height: 44,
-              decoration: const BoxDecoration(
-                color: Color(0xFF56FFA4),
-                shape: BoxShape.circle,
-              ),
-              child: const Icon(
-                Icons.phone,
-                color: Color(0xFF0F624C),
-                size: 20,
-              ),
-            ),
-            const SizedBox(width: 12),
-            Container(
-              width: 44,
-              height: 44,
-              decoration: BoxDecoration(
-                color: AppColors.primaryColor,
-                shape: BoxShape.circle,
-              ),
-              child: const Icon(
-                Icons.chat_bubble,
-                color: Colors.white,
-                size: 20,
-              ),
-            ),
-          ],
+          color: Colors.indigo,
         ),
       ),
     );

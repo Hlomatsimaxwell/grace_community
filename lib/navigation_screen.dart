@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grace_community/bulletin_screen.dart';
+import 'package:grace_community/people_screen.dart';
 import 'package:grace_community/resources/app_colors.dart';
 import 'home_screen.dart';
 import 'package:grace_community/resources/app_images.dart';
-import 'package:grace_community/people_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -65,7 +65,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
             _currentIndex = index;
           });
         },
-        destinations:  [
+        destinations: [
           NavigationDestination(
             icon: SvgPicture.asset(AppImages.house),
             label: 'Home',
@@ -92,14 +92,11 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   }
 }
 
-
-
-
 class GivingScreen extends StatelessWidget {
   const GivingScreen({super.key});
 
   @override
-   Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return const Center(
       child: Text('Giving Screen', style: TextStyle(fontSize: 20)),
     );
@@ -110,7 +107,7 @@ class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
-   Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return const Center(
       child: Text('User Profile Screen', style: TextStyle(fontSize: 20)),
     );
