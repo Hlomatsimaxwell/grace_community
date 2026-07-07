@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grace_community/bulletin_screen.dart';
+import 'package:grace_community/giving_screen.dart';
 import 'package:grace_community/people_screen.dart';
 import 'package:grace_community/resources/app_colors.dart';
 import 'home_screen.dart';
@@ -92,16 +93,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   }
 }
 
-class GivingScreen extends StatelessWidget {
-  const GivingScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Giving Screen', style: TextStyle(fontSize: 20)),
-    );
-  }
-}
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
