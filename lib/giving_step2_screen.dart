@@ -4,10 +4,12 @@ import 'package:grace_community/components/selection_tile.dart';
 
 class GivingStep2Screen extends StatelessWidget {
   final VoidCallback onBackStep;
+  final VoidCallback onNextStep;
 
   const GivingStep2Screen({
     super.key,
     required this.onBackStep,
+    required this.onNextStep,
   });
 
   @override
@@ -189,7 +191,7 @@ class GivingStep2Screen extends StatelessWidget {
               child: SizedBox(
                 height: 50,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: onNextStep,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.primaryColor,
                     foregroundColor: Colors.white,

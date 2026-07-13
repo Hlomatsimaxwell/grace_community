@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grace_community/resources/app_colors.dart';
 import 'package:grace_community/giving_step1_screen.dart';
 import 'package:grace_community/giving_step2_screen.dart';
+import 'package:grace_community/giving_step3_screen.dart';
 
 class GivingScreen extends StatefulWidget {
   const GivingScreen({super.key});
@@ -37,6 +38,7 @@ class _GivingScreenState extends State<GivingScreen> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
+        physics: const ClampingScrollPhysics(),  // ✅ 
       child: Column(
         children: [
           const SizedBox(height: 16),
@@ -61,6 +63,14 @@ class _GivingScreenState extends State<GivingScreen> {
           else if (_currentStep == 2)
             GivingStep2Screen(
               onBackStep: () => _goToStep(1),
+              onNextStep: () => _goToStep(3),
+            )
+          else if (_currentStep == 3)
+            GivingStep3Screen(
+              amount: _amountController.text.isEmpty ? '0.00' : _amountController.text,
+              fund: 'General',
+              frequency: _selectedFrequency,
+              onReturnHome: () => _goToStep(1),
             ),
         ],
       ),
@@ -88,7 +98,7 @@ class _GivingScreenState extends State<GivingScreen> {
                 width: 32,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: _currentStep == 2
+                  color: _currentStep >= 2
                       ? AppColors.primaryColor
                       : Colors.grey.shade200,
                   borderRadius: BorderRadius.circular(2),
@@ -99,7 +109,9 @@ class _GivingScreenState extends State<GivingScreen> {
                 width: 16,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
+                  color: _currentStep == 3
+                      ? AppColors.primaryColor
+                      : Colors.grey.shade200,
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
