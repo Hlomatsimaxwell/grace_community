@@ -29,8 +29,8 @@ class GivingStep3Screen extends StatelessWidget {
                 shape: BoxShape.circle,
                 color: Color(0xFF56FFA4),
               ),
-              child: const Icon(
-                Icons.favorite,
+              child:  Icon(
+                            Icons.handshake_rounded,
                 size: 54,
                 color: Color(0xFF0F624C),
               ),

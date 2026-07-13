@@ -60,6 +60,7 @@ class GivingStep1Screen extends StatelessWidget {
                 TextField(
                   controller: amountController,
                   keyboardType: TextInputType.number,
+                  autofocus: false,
                   style: const TextStyle(
                     fontSize: 48,
                     fontWeight: FontWeight.bold,
