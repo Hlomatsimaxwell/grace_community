@@ -114,9 +114,7 @@ class GivingStep2Screen extends StatelessWidget {
             label: const Text('Add New Payment Method'),
             style: OutlinedButton.styleFrom(
               foregroundColor: AppColors.primaryColor,
-              side: BorderSide(
-                color: AppColors.primaryColor.withOpacity(0.3),
-              ),
+              side: BorderSide(color: AppColors.primaryColor.withOpacity(0.3)),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(14),
               ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:grace_community/resources/app_colors.dart';
 
-class GivingStep1Screen extends StatelessWidget {
+class GivingStep1Screen extends StatefulWidget {
   final TextEditingController amountController;
   final String selectedFrequency;
   final Function(String) onFrequencyChanged;
@@ -16,6 +17,28 @@ class GivingStep1Screen extends StatelessWidget {
     required this.onSetAmount,
     required this.onNextStep,
   });
+
+  @override
+  State<GivingStep1Screen> createState() => _GivingStep1ScreenState();
+}
+
+class _GivingStep1ScreenState extends State<GivingStep1Screen> {
+  late FocusNode _focusNode;
+
+  @override
+  void initState() {
+    super.initState();
+    _focusNode = FocusNode();
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      _focusNode.requestFocus();
+    });
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,22 +81,20 @@ class GivingStep1Screen extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 TextField(
-                  controller: amountController,
+                  controller: widget.amountController,
+                  focusNode: _focusNode,
                   keyboardType: TextInputType.number,
-                  autofocus: false,
                   style: const TextStyle(
                     fontSize: 48,
                     fontWeight: FontWeight.bold,
                     color: AppColors.primaryColor,
                   ),
                   decoration: InputDecoration(
-                    prefix: const Text(
-                      '\$ ',
-                      style: TextStyle(
-                        fontSize: 48,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.primaryColor,
-                      ),
+                    prefixText: '\$ ',
+                    prefixStyle: const TextStyle(
+                      fontSize: 48,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.primaryColor,
                     ),
                     border: InputBorder.none,
                     hintText: '0.00',
@@ -181,7 +202,7 @@ class GivingStep1Screen extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: ElevatedButton(
-            onPressed: onNextStep,
+            onPressed: widget.onNextStep,
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.primaryColor,
               padding: const EdgeInsets.symmetric(vertical: 16),
@@ -211,7 +232,7 @@ class GivingStep1Screen extends StatelessWidget {
 
   Widget _buildAmountButton(String label, String value) {
     return OutlinedButton(
-      onPressed: () => onSetAmount(value),
+      onPressed: () => widget.onSetAmount(value),
       style: OutlinedButton.styleFrom(
         side: BorderSide(color: Colors.grey.shade300),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -246,10 +267,10 @@ class GivingStep1Screen extends StatelessWidget {
   }
 
   Widget _buildFrequencyButton(String label) {
-    final isSelected = selectedFrequency == label;
+    final isSelected = widget.selectedFrequency == label;
     return Expanded(
       child: GestureDetector(
-        onTap: () => onFrequencyChanged(label),
+        onTap: () => widget.onFrequencyChanged(label),
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 12),
           decoration: BoxDecoration(

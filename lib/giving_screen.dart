@@ -13,6 +13,7 @@ class GivingScreen extends StatefulWidget {
 
 class _GivingScreenState extends State<GivingScreen> {
   late TextEditingController _amountController;
+  late ScrollController _scrollController;
   String _selectedFrequency = 'One-time';
   int _currentStep = 1;
 
@@ -20,25 +21,36 @@ class _GivingScreenState extends State<GivingScreen> {
   void initState() {
     super.initState();
     _amountController = TextEditingController(text: '');
+    _scrollController = ScrollController();
   }
 
   @override
   void dispose() {
     _amountController.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
   void _goToStep(int step) {
+    // 1. Dismiss keyboard cleanly
+    FocusManager.instance.primaryFocus?.unfocus();
+    
     setState(() {
       _currentStep = step;
     });
+
+    // 2. Force scroll position back to the top
+    if (_scrollController.hasClients) {
+      _scrollController.jumpTo(0.0);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      controller: _scrollController,
       padding: const EdgeInsets.all(16.0),
-        physics: const ClampingScrollPhysics(),  // ✅ 
+      physics: const ClampingScrollPhysics(),
       child: Column(
         children: [
           const SizedBox(height: 16),
